@@ -9,14 +9,6 @@ const connectDB = async (URI) => {
         console.log(e)
     } finally {
     }
-    // const db = mongoose.connection;
-    //
-    // db.on("error", (err) => {
-    //     console.log(err)
-    // })
-    // db.on("open", () => {
-    //     console.log("DB connected")
-    // })
 }
 
 export {connectDB}
