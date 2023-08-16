@@ -4,7 +4,13 @@ const Services = db.loan
 
 export const createOne = async (req, res) => {
     const payload = new Services({
-
+        personName: req.body.personName,
+        personID: req.body.personID,
+        borrowedFrom: req.body.borrowedFrom,
+        dateLoan: Date.parse(req.body.dateLoan),
+        dateReturn: Date.parse(req.body.dateReturn),
+        status: req.body.status,
+        inventories: req.body.inventories
     });
     try {
         const result = await payload.save();

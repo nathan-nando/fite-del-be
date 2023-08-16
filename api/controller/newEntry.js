@@ -5,8 +5,9 @@ const Services = db.newEntry
 export const createOne = async (req, res) => {
     const payload = new Services({
         name: req.body.name,
-        total: req.body.total,
+        total: Number(req.body.total),
         entryDate: Date.parse(req.body.entryDate),
+        img: req.body.img
     });
     try {
         const result = await payload.save();
@@ -37,8 +38,9 @@ export const updateOne = async (req, res) => {
     const id = req.params.id;
     const updatedData = {
         name: req.body.name,
-        total: req.body.total,
+        total: Number(req.body.total),
         entryDate: Date.parse(req.body.entryDate),
+        img: req.body.img,
     };
     // const options = {new: true}
 

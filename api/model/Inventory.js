@@ -20,6 +20,10 @@ const Inventory = new mongoose.Schema({
     code: {
         required: true,
         type: String,
+    },
+    img:{
+        required: true,
+        type: String,
     }
 })
 
