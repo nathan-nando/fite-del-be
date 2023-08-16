@@ -17,9 +17,9 @@ const Inventory = new mongoose.Schema({
         required: true,
         type: Number
     },
-    number: {
+    code: {
         required: true,
-        type: Number,
+        type: String,
     }
 })
 
