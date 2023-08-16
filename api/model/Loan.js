@@ -1,12 +1,13 @@
 import mongoose from "mongoose";
+import Inventory from "./Inventory.js";
 
 const Loan = new mongoose.Schema({
     personName: {
-        required: true,
+        required: false,
         type: String
     },
     personID: {
-        required: true,
+        required: false,
         type: String
     },
     borrowedFrom: {
@@ -25,6 +26,8 @@ const Loan = new mongoose.Schema({
         required: true,
         type: String
     },
+
+    inventories: [{type: mongoose.Types.ObjectId, ref: "Inventory", required: true}, ]
 })
 
 export default mongoose.model('Loan', Loan)

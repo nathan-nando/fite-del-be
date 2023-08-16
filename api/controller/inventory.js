@@ -5,10 +5,11 @@ const Services = db.inventory
 export const createOne = async (req, res) => {
     const payload = new Services({
         name: req.body.name,
-        total: req.body.total,
+        total: Number(req.body.total),
         dateIn: Date.parse(req.body.dateIn),
-        frequency: req.body.frequency,
+        frequency: Number(req.body.frequency),
         code: req.body.code,
+        img: req.body.img
     });
     try {
         const result = await payload.save();
@@ -39,10 +40,11 @@ export const updateOne = async (req, res) => {
     const id = req.params.id;
     const updatedData = {
         name: req.body.name,
-        total: req.body.total,
+        total: Number(req.body.total),
         dateIn: Date.parse(req.body.dateIn),
-        frequency: req.body.frequency,
+        frequency: Number(req.body.frequency),
         code: req.body.code,
+        img: req.body.img,
     };
 
     try {
