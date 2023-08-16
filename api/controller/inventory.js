@@ -9,7 +9,8 @@ export const createOne = async (req, res) => {
         dateIn: Date.parse(req.body.dateIn),
         frequency: Number(req.body.frequency),
         code: req.body.code,
-        img: req.body.img
+        img: req.body.img,
+        lab: req.body.lab,
     });
     try {
         const result = await payload.save();
@@ -45,6 +46,7 @@ export const updateOne = async (req, res) => {
         frequency: Number(req.body.frequency),
         code: req.body.code,
         img: req.body.img,
+        lab: req.body.lab,
     };
 
     try {
