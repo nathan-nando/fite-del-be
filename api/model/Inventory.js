@@ -9,19 +9,15 @@ const Inventory = new mongoose.Schema({
         required: true,
         type: Number
     },
-    dateIn: {
+    dateIn: [{
         required: true,
         type: Date
-    },
+    }],
     frequency: {
         required: true,
         type: Number
     },
     code: {
-        required: true,
-        type: String,
-    },
-    img:{
         required: true,
         type: String,
     },

@@ -13,9 +13,13 @@ const User = new mongoose.Schema({
         required: true,
         type: String
     },
-    role: {
+    lab: {
+        required: false,
+        type: [String]
+    },
+    isAdmin: {
         required: true,
-        type: String
+        type : Boolean,
     }
 })
 

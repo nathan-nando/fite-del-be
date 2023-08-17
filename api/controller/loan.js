@@ -7,10 +7,12 @@ export const createOne = async (req, res) => {
         personName: req.body.personName,
         personID: req.body.personID,
         borrowedFrom: req.body.borrowedFrom,
+        description: req.body.description,
+        total: Number(req.body.total),
         dateLoan: Date.parse(req.body.dateLoan),
         dateReturn: Date.parse(req.body.dateReturn),
         status: req.body.status,
-        inventories: req.body.inventories
+        inventory: req.body.inventory
     });
     try {
         const result = await payload.save();
@@ -21,7 +23,8 @@ export const createOne = async (req, res) => {
 }
 export const getAll = async (req, res) => {
     try {
-        const result = await Services.find();
+        const result = await Services.find().populate('inventory').exec();
+        // const result = await Services.find();
         res.status(200).json({data: result})
     } catch (e) {
         res.status(500).json({message: e.message})
@@ -40,9 +43,16 @@ export const getByID = async (req, res) => {
 export const updateOne = async (req, res) => {
     const id = req.params.id;
     const updatedData = {
-
+        personName: req.body.personName,
+        personID: req.body.personID,
+        borrowedFrom: req.body.borrowedFrom,
+        description: req.body.description,
+        total: Number(req.body.total),
+        dateLoan: Date.parse(req.body.dateLoan),
+        dateReturn: Date.parse(req.body.dateReturn),
+        status: req.body.status,
+        inventory: req.body.inventory
     };
-    // const options = {new: true}
 
     try {
         const result = await Services.findByIdAndUpdate(id, updatedData);

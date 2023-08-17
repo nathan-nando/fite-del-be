@@ -3,10 +3,14 @@ import db from "../model/index.js";
 const Services = db.inventory
 
 export const createOne = async (req, res) => {
+    const date =  req.body.dateIn
+    date.map((v)=>{
+        v = Date.parse(v)
+    })
     const payload = new Services({
         name: req.body.name,
         total: Number(req.body.total),
-        dateIn: Date.parse(req.body.dateIn),
+        dateIn: date,
         frequency: Number(req.body.frequency),
         code: req.body.code,
         img: req.body.img,

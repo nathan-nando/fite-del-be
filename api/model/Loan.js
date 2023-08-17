@@ -14,6 +14,10 @@ const Loan = new mongoose.Schema({
         required: true,
         type: String
     },
+    description: {
+        required: true,
+        type: String,
+    },
     dateLoan: {
         required: true,
         type: Date
@@ -22,12 +26,16 @@ const Loan = new mongoose.Schema({
         required: true,
         type: Date
     },
+    total: {
+        required: true,
+        type: Number
+    },
     status: {
         required: true,
         type: String
     },
 
-    inventories: [{type: mongoose.Types.ObjectId, ref: "Inventory", required: true}, ]
+    inventory: {type: mongoose.Types.ObjectId, ref: "Inventory", required: true}
 })
 
 export default mongoose.model('Loan', Loan)
