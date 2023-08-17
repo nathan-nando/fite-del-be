@@ -1,5 +1,6 @@
 import {Router} from "express";
 import {createOne, deleteOne, getAll, getByID, updateOne} from "../controller/loan.js";
+import jwtMiddleware from "../middlewares/jwtMiddleware.js";
 
 const router = Router();
 
