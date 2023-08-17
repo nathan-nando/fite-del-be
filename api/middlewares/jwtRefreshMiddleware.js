@@ -1,5 +1,4 @@
 import jwt from "jsonwebtoken";
-import {token} from "morgan";
 
 export default async (req, res, next) => {
     try {

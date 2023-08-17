@@ -8,6 +8,6 @@ const router = Router();
 router.get("/", getAll);
 router.get("/:id", getByID);
 router.post("/", jwtMiddleware, createOne);
-router.patch("/:id", updateOne)
-router.delete("/:id", deleteOne)
+router.patch("/:id",jwtMiddleware,  updateOne)
+router.delete("/:id",jwtMiddleware, deleteOne)
 export default router;

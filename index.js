@@ -29,7 +29,6 @@ connectDB(process.env.MONGO_URI);
 // Register Route
 app.use("/api/auth", routes.AUTH)
 app.use("/api/inventory", routes.INVENTORY)
-app.use("/api/new-entry", routes.NEW_ENTRY)
 app.use("/api/loan", routes.LOAN)
 
 
