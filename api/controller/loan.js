@@ -1,4 +1,5 @@
 import db from "../model/index.js";
+import Inventory from "../model/Inventory.js";
 
 const Services = db.loan
 
@@ -56,6 +57,13 @@ export const updateOne = async (req, res) => {
 
     try {
         const result = await Services.findByIdAndUpdate(id, updatedData);
+        if (req.body.status === "disetujui") {
+            const inventory = await Inventory.findById(result.inventory)
+            const updatedInventory = await Inventory.findByIdAndUpdate(result.inventory, {
+                total: inventory.total - result.total,
+                frequency: inventory.frequency + 1
+            })
+        }
         res.status(200).json({data: updatedData});
 
     } catch (e) {
