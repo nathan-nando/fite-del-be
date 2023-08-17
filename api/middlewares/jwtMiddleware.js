@@ -1,5 +1,4 @@
 import jwt from "jsonwebtoken";
-import {token} from "morgan";
 
 export default async (req, res, next) => {
     try {
@@ -9,8 +8,7 @@ export default async (req, res, next) => {
         next();
     } catch (e) {
         return res.status(403).json({
-            message: "forbidden",
-            error: e,
+            message: "forbidden", error: e,
         })
     }
 }

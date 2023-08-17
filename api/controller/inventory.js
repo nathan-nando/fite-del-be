@@ -3,17 +3,16 @@ import db from "../model/index.js";
 const Services = db.inventory
 
 export const createOne = async (req, res) => {
-    const date =  req.body.dateIn
-    date.map((v)=>{
-        v = Date.parse(v)
-    })
+    // const date =  req.body.dateIn
+    // date.map((v)=>{
+    //     v = Date.parse(v)
+    // })
     const payload = new Services({
         name: req.body.name,
         total: Number(req.body.total),
-        dateIn: date,
+        dateIn: Date.parse(req.body.dateIn),
         frequency: Number(req.body.frequency),
         code: req.body.code,
-        img: req.body.img,
         lab: req.body.lab,
     });
     try {
@@ -49,7 +48,6 @@ export const updateOne = async (req, res) => {
         dateIn: Date.parse(req.body.dateIn),
         frequency: Number(req.body.frequency),
         code: req.body.code,
-        img: req.body.img,
         lab: req.body.lab,
     };
 

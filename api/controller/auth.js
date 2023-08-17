@@ -1,9 +1,6 @@
-import db from "../model/index.js";
 import {comparePassword, createJwtToken, decryptPassword} from "../../utils/auth.js";
 import User from "../model/User.js";
 import mongoose from "mongoose";
-
-const Services = db.user
 
 export const login = async (req, res) => {
     try {
