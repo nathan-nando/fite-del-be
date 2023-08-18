@@ -52,7 +52,8 @@ export const updateOne = async (req, res) => {
         dateLoan: Date.parse(req.body.dateLoan),
         dateReturn: Date.parse(req.body.dateReturn),
         status: req.body.status,
-        inventory: req.body.inventory
+        inventory: req.body.inventory,
+        condition: req.body.condition,
     };
 
     try {
@@ -62,6 +63,13 @@ export const updateOne = async (req, res) => {
             const updatedInventory = await Inventory.findByIdAndUpdate(result.inventory, {
                 total: inventory.total - result.total,
                 frequency: inventory.frequency + 1
+            })
+        }
+
+        if(req.body.status === "dikembalikan"){
+            const inventory = await Inventory.findById(result.inventory)
+            const updatedInventory = await  Inventory.findByIdAndUpdate(result.inventory, {
+                total: inventory.total + result.total
             })
         }
         res.status(200).json({data: updatedData});
