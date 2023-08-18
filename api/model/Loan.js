@@ -34,6 +34,10 @@ const Loan = new mongoose.Schema({
         required: true,
         type: String
     },
+    condition:{
+        required: false,
+        type: String
+    },
 
     inventory: {type: mongoose.Types.ObjectId, ref: "Inventory", required: true}
 })
